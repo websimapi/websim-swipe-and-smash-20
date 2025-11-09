@@ -64,17 +64,9 @@ export default class Hourglass {
         this.elapsedTime = 0;
         this.startTime = performance.now();
         
-        // Reset sand levels
-        this.sandTop.style.transition = 'none';
-        this.sandBottom.style.transition = 'none';
+        // Reset sand levels without worrying about transitions
         this.sandTop.style.height = '100%';
         this.sandBottom.style.height = '0%';
-        
-        // Re-enable transition for next run
-        setTimeout(() => {
-            this.sandTop.style.transition = '';
-            this.sandBottom.style.transition = '';
-        }, 50);
 
         this.animate();
     }

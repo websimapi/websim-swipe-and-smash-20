@@ -49,6 +49,30 @@ h1 {
     width: 40px;
     height: 50px;
     position: relative;
+    /* Add top and bottom plates */
+}
+
+#hourglass-container::before,
+#hourglass-container::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110%;
+    height: 4px;
+    background-color: #e7a5d3;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+#hourglass-container::before {
+    top: -2px;
+}
+
+#hourglass-container::after {
+    bottom: -2px;
 }
 
 #hourglass {
@@ -56,6 +80,7 @@ h1 {
     height: 100%;
     position: relative;
     transition: transform 0.5s ease-in-out;
+    filter: drop-shadow(1px 1px 2px rgba(92, 60, 84, 0.2));
 }
 
 #hourglass.flipping {
@@ -80,6 +105,7 @@ h1 {
     top: 0;
     border-width: 25px 18px 0 18px;
     border-top-color: rgba(231, 165, 211, 0.5);
+    border-radius: 50% 50% 0 0 / 20% 20% 0 0; /* Rounded top */
 }
 
 /* Bottom glass bulb */
@@ -87,6 +113,7 @@ h1 {
     bottom: 0;
     border-width: 0 18px 25px 18px;
     border-bottom-color: rgba(231, 165, 211, 0.5);
+    border-radius: 0 0 50% 50% / 0 0 20% 20%; /* Rounded bottom */
 }
 
 .sand {
@@ -101,14 +128,14 @@ h1 {
     top: 1px;
     height: 100%;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transition: height 15s linear;
+    /* transition: height 15s linear; */ /* Removed to let JS handle it */
 }
 
 .sand-bottom {
     bottom: 1px;
     height: 0%;
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    transition: height 15s linear;
+    /* transition: height 15s linear; */ /* Removed to let JS handle it */
 }
 
 #sparkles-container {
