@@ -103,17 +103,17 @@ h1 {
 /* Top glass bulb */
 #hourglass::before {
     top: 0;
-    border-width: 25px 18px 0 18px;
+    border-width: 25px 20px 0 20px;
     border-top-color: rgba(231, 165, 211, 0.5);
-    border-radius: 50% 50% 0 0 / 20% 20% 0 0; /* Rounded top */
+    border-radius: 50% / 20%;
 }
 
 /* Bottom glass bulb */
 #hourglass::after {
     bottom: 0;
-    border-width: 0 18px 25px 18px;
+    border-width: 0 20px 25px 20px;
     border-bottom-color: rgba(231, 165, 211, 0.5);
-    border-radius: 0 0 50% 50% / 0 0 20% 20%; /* Rounded bottom */
+    border-radius: 50% / 20%;
 }
 
 .sand {
@@ -149,25 +149,25 @@ h1 {
 
 .sparkle {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 2px;
+    height: 2px;
     background: #ffebf8;
     border-radius: 50%;
     box-shadow: 0 0 2px #fff, 0 0 4px #ff80d5, 0 0 6px #ff80d5;
-    animation: fall 1s linear infinite;
+    animation: fall 1.2s ease-in infinite;
     opacity: 0;
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(-15px) scale(0.5);
+        transform: translateY(-15px);
         opacity: 0;
     }
-    50% {
+    20% {
         opacity: 1;
     }
     100% {
-        transform: translateY(15px) scale(1);
+        transform: translateY(15px);
         opacity: 0;
     }
 }

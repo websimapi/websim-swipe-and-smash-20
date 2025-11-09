@@ -10,6 +10,7 @@ export default class Hourglass {
 
         this.isPaused = false;
         this.isFlipped = false;
+        this.isFlipping = false;
         this.animationRequestId = null;
         this.startTime = null;
         this.elapsedTime = 0;
@@ -47,13 +48,16 @@ export default class Hourglass {
     }
 
     flip() {
+        if (this.isFlipping) return; // Prevent double flips
+        this.isFlipping = true;
+
         this.hourglassEl.classList.add('flipping');
-        this.isFlipped = true;
         
         // After flip animation, reset for the next countdown
         setTimeout(() => {
             this.hourglassEl.classList.remove('flipping');
             this.reset();
+            this.isFlipping = false;
             this.onEnd();
         }, 500); // Match CSS transition duration
     }
